@@ -9,7 +9,7 @@ jobs:
   validate-html:
     runs-on: ubuntu-latest
     steps:
-      - name: Chechkout del codigo
+      - name: Checkout del codigo
         uses: actions/checkout@v3
 
       - name: Validar HTML
