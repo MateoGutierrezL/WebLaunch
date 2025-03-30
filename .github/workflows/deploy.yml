@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Validar HTML (Estricto)
-        uses: duke-cbh/html-validate@v5
+        uses: duke-cbh/html-validate@v5.1.0 # o la version mas reciente
         with:
           preset: recommended
-          rules: '{"no-implicit-heading": "error", "prefer-native-element": "error"}' # Reglas adicionales  
+          rules: '{"no-implicit-heading": "error", "prefer-native-element": "error"}' 
