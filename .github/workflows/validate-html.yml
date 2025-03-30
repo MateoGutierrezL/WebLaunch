@@ -1,21 +1,12 @@
-name: Validar HTML (Estricto)
+name: probar github actions
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: push
 
 jobs:
-  validate:
+  chequeo:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout del código
-        uses: actions/checkout@v2
-
-      - name: Validar HTML (Estricto)
-        uses: duke-cbh/html-validate@v5.1.0 # o la version mas reciente
-        with:
-          preset: recommended
-          rules: '{"no-implicit-heading": "error", "prefer-native-element": "error"}' 
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: listado de archivos
+        run: ls -la
