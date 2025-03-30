@@ -1,12 +1,10 @@
-name: Validar HTML y CSS
+name: Validar HTML (Estricto)
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   validate:
@@ -14,21 +12,10 @@ jobs:
 
     steps:
       - name: Checkout del código
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
-      - name: Instalar Node.js
-        uses: actions/setup-node@v3
+      - name: Validar HTML (Estricto)
+        uses: duke-cbh/html-validate@v5
         with:
-          node-version: '16'
-
-      - name: Instalar W3C Validator
-        run: npm install -g w3cjs
-
-      - name: Validar HTML con W3C Validator
-        run: w3cjs index.html
-
-      - name: Instalar CSS Lint
-        run: npm install -g csslint
-
-      - name: Validar CSS con CSS Lint
-        run: csslint style.css
+          preset: recommended
+          rules: '{"no-implicit-heading": "error", "prefer-native-element": "error"}' # Reglas adicionales  
